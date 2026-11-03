@@ -1,5 +1,17 @@
 # Agent notes
 
+## This self-hosted fork
+
+This fork deploys the original hosted viewer at https://edward-lyz.github.io/diffmap/.
+Keep the upstream UI and MIT attribution. Use the existing route functions and
+Vite's native base option; hosted deep links use `?path=` so Pages can serve HTTP
+200 on reload. See SELF_HOSTING.md. The Pages workflow publishes the website;
+the npm publishing job is restricted to the upstream repository.
+
+The mandatory per-commit Diffmap policy is configured only in codex-mixin, not
+globally. Keep reports outside that product repository and preserve published
+snapshots. Do not publish private code or credentials to the public viewer.
+
 ## Releasing
 
 Merging or pushing to `main` does not publish a new package unless the version

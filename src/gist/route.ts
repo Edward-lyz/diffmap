@@ -72,8 +72,12 @@ export function rewritePiGistUrl(pathname: string, hash: string) {
 }
 
 export function gistPath(gistId: string, file?: string) {
-  if (file === undefined || file.length === 0) return `/g/${gistId}`;
-  return `/g/${gistId}/${file.split("/").map(encodeURIComponent).join("/")}`;
+  const route =
+    file === undefined || file.length === 0
+      ? `/g/${gistId}`
+      : `/g/${gistId}/${file.split("/").map(encodeURIComponent).join("/")}`;
+  const base = import.meta.env?.BASE_URL ?? "/";
+  return base === "/" ? route : `${base}?path=${encodeURIComponent(route)}`;
 }
 
 export function gistViewerUrl(
@@ -118,10 +122,12 @@ export function pickMarkdownFile(
 
 function normalizePath(pathname: string) {
   if (pathname.length === 0) return "/";
+  const [path, query] = pathname.split("?", 2);
+  const route = new URLSearchParams(query).get("path") ?? path ?? "/";
   try {
-    return decodeURI(pathname);
+    return decodeURI(route);
   } catch {
-    return pathname;
+    return route;
   }
 }
 

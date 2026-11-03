@@ -200,7 +200,7 @@ async function loadView(
   const spec = loaded.spec;
   if (route.kind === "github-pull") {
     const pinned = githubCommitPath(spec.owner, spec.repo, spec.sha, spec.path);
-    if (window.location.pathname !== pinned) {
+    if (window.location.pathname + window.location.search !== pinned) {
       window.history.replaceState({}, "", `${pinned}${window.location.hash}`);
     }
   }
@@ -222,7 +222,9 @@ async function loadView(
 }
 
 function readGitHubRoute(): GitHubRoute {
-  const parsed = parseGitHubPath(window.location.pathname);
+  const parsed = parseGitHubPath(
+    window.location.pathname + window.location.search,
+  );
   if (parsed.kind === "home") {
     return {
       kind: "github-invalid",

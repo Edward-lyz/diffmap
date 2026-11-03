@@ -85,7 +85,9 @@ export function githubPullPath(
   pull: number,
   filePath: string,
 ) {
-  return `/${encodeName(owner)}/${encodeName(repo)}/pull/${String(pull)}/${encodeSpecPath(filePath)}`;
+  const route = `/${encodeName(owner)}/${encodeName(repo)}/pull/${String(pull)}/${encodeSpecPath(filePath)}`;
+  const base = import.meta.env?.BASE_URL ?? "/";
+  return base === "/" ? route : `${base}?path=${encodeURIComponent(route)}`;
 }
 
 export function githubCommitPath(
@@ -94,7 +96,9 @@ export function githubCommitPath(
   sha: string,
   filePath: string,
 ) {
-  return `/${encodeName(owner)}/${encodeName(repo)}/commit/${sha}/${encodeSpecPath(filePath)}`;
+  const route = `/${encodeName(owner)}/${encodeName(repo)}/commit/${sha}/${encodeSpecPath(filePath)}`;
+  const base = import.meta.env?.BASE_URL ?? "/";
+  return base === "/" ? route : `${base}?path=${encodeURIComponent(route)}`;
 }
 
 export function githubViewerUrl(
@@ -159,10 +163,12 @@ function encodeSpecPath(filePath: string) {
 
 function normalizePath(pathname: string) {
   if (pathname.length === 0) return "/";
+  const [path, query] = pathname.split("?", 2);
+  const route = new URLSearchParams(query).get("path") ?? path ?? "/";
   try {
-    return decodeURI(pathname);
+    return decodeURI(route);
   } catch {
-    return pathname;
+    return route;
   }
 }
 

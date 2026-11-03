@@ -9,11 +9,14 @@ function isGitHubPath(pathname: string) {
 
 export function HostApp() {
   const [github, setGithub] = useState(() =>
-    isGitHubPath(window.location.pathname),
+    isGitHubPath(window.location.pathname + window.location.search),
   );
 
   useEffect(() => {
-    const onPop = () => setGithub(isGitHubPath(window.location.pathname));
+    const onPop = () =>
+      setGithub(
+        isGitHubPath(window.location.pathname + window.location.search),
+      );
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
   }, []);

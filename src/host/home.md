@@ -1,5 +1,11 @@
 # diffmap
 
+本实例由 [Edward-lyz/diffmap](https://github.com/Edward-lyz/diffmap) 托管在 GitHub Pages，沿用原版 Diffmap 的图、代码关联、差异面板与评论功能。
+
+[打开 Codex Mixin 本次修复的完整在线报告](https://edward-lyz.github.io/diffmap/?path=/g/d8d42916cf57e6cb337b2418ca4345bf)。后续 Mixin commit 必须附上各自冻结的报告链接；[使用与部署说明](https://github.com/Edward-lyz/diffmap/blob/main/SELF_HOSTING.md)。
+
+以下保留上游的交互示例与使用说明。上游源码采用 MIT 授权，见 [tanishqkancharla/diffmap](https://github.com/tanishqkancharla/diffmap)。
+
 **Your coding agent writes more code than you can review.**
 
 **Review the important design changes, not massive line diffs.**

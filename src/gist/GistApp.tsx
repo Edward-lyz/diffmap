@@ -249,11 +249,13 @@ async function loadView(
 
 function readRoute(): GistRoute {
   const rewritten = rewritePiGistUrl(
-    window.location.pathname,
+    window.location.pathname + window.location.search,
     window.location.hash,
   );
   if (rewritten !== undefined) return parseGistPath(rewritten);
-  const parsed = parseGistPath(window.location.pathname);
+  const parsed = parseGistPath(
+    window.location.pathname + window.location.search,
+  );
   if (parsed.kind === "empty") return { kind: "home" };
   return parsed;
 }

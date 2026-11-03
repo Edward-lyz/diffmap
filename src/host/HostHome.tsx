@@ -79,9 +79,7 @@ export function HostHome() {
           document={view.document}
           mode="host"
           headerActions={
-            <Link href="https://github.com/tanishqkancharla/diffmap">
-              GitHub
-            </Link>
+            <Link href="https://github.com/Edward-lyz/diffmap">GitHub</Link>
           }
         />
       </ChangesLoaderContext.Provider>

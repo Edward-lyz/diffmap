@@ -1,5 +1,9 @@
 # diffmap
 
+Edward's self-hosted original viewer: <https://edward-lyz.github.io/diffmap/>.
+See [SELF_HOSTING.md](SELF_HOSTING.md) for deployment and per-commit reports.
+Upstream MIT-licensed project: <https://github.com/tanishqkancharla/diffmap>.
+
 [![Watch the diffmap launch video](media/launch.jpg)](https://x.com/tanishqk/status/2116212881125691850)
 
 **Your coding agent writes more code than you can review.** You should spend your review time on design decisions and risky changes, not boilerplate.

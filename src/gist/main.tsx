@@ -6,7 +6,7 @@ import { HostApp } from "../host/HostApp.tsx";
 import "../viewer/styles.css";
 
 const rewritten = rewritePiGistUrl(
-  window.location.pathname,
+  window.location.pathname + window.location.search,
   window.location.hash,
 );
 if (rewritten !== undefined) {
