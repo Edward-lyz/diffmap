@@ -8,9 +8,9 @@ Vite's native base option; hosted deep links use `?path=` so Pages can serve HTT
 200 on reload. See SELF_HOSTING.md. The Pages workflow publishes the website;
 the npm publishing job is restricted to the upstream repository.
 
-The mandatory per-commit Diffmap policy is configured only in codex-mixin, not
-globally. Keep reports outside that product repository and preserve published
-snapshots. Do not publish private code or credentials to the public viewer.
+Diffmap is optional personal review tooling. No mandatory commit hook or linked
+pull-request workflow is required. Keep reports outside product repositories and
+preserve published snapshots. Do not publish private code or credentials.
 
 ## Releasing
 
